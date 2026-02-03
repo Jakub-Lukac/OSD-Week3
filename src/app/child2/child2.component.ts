@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { CounterService } from '../counter.service';
 
 @Component({
   selector: 'app-child2',
@@ -7,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './child2.component.scss'
 })
 export class Child2Component {
-
+  countService = inject(CounterService);
+  doubleCount = this.countService.doubleCount;
 }
