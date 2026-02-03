@@ -1,12 +1,12 @@
-import { Injectable, signal, computed } from '@angular/core';
+import { Injectable, signal, computed, WritableSignal, Signal } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CounterService {
-  count = signal(0); // writable signal
+  count:WritableSignal<number> = signal(0); // writable signal
   
-  doubleCount = computed(() => {
+  doubleCount:Signal<number> = computed(() => {
     console.log('Calculating doubleCount:', this.count() * 2);
     return this.count() * 2;
   }); // computed signal -> readonly
